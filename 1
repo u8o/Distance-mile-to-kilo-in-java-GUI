@@ -1,0 +1,48 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class KilometerConvert extends JFrame implements ActionListener{
+
+    Container cp;
+    JButton b;
+    JFrame f;
+    JTextField t1;
+    JTextArea t2;
+    JLabel l;
+    JPanel p;
+  KilometerConvert(){
+	
+  t2 = new JTextArea();
+  l =new JLabel ("Distanse in miles");
+  p = new JPanel();
+  t1 = new JTextField(8); 	
+  b= new JButton("convert");
+ 
+  p.add(l);p.add(t1);p.add(b);
+  f= new JFrame ("Distanse Converter");
+
+  cp = f.getContentPane();
+
+  f.setSize(400,400);
+  f.setLocation(300,200);
+  f.setBackground(Color.white);
+  f.setVisible(true);
+  f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+    b.addActionListener(this);	
+	
+  cp.add(p,"North");
+  cp.add(t2,"Center");
+
+   }	
+	
+	public void actionPerformed(ActionEvent ae) {
+	if(ae.getSource().equals(b)){
+		int a= Integer.parseInt(t1.getText());
+		double r=a*1.6;
+		t2.setText(t2.getText()+r+"\n");
+	}
+	}
+    public static void main(String []args){
+	new KilometerConvert();
+    }
+}
